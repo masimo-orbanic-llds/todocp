@@ -1,6 +1,6 @@
 const style = {
   header: {
-    backgroundColor: '#00f0ff',
+    backgroundColor: '#f01faf',
     text: {
       color: '#ffffff',
       fontWeight: 'bold',
