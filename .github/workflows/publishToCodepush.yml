@@ -24,5 +24,6 @@ jobs:
         run: |
           npm install -g appcenter-cli
       - name: Publish to code push
-        run: appcenter codepush release-react -a masimo-lloyds.design/todocp-android -d Production --token=${{secrets.APP_CENTER_TOKEN}}
+        run: | 
+          appcenter codepush release-react -a masimo-lloyds.design/todocp-android -d Production --token=${{secrets.APP_CENTER_TOKEN}}
          
