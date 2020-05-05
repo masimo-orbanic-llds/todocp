@@ -20,6 +20,13 @@ jobs:
       - name: Install npm dependencies
         run: |
           npm install
+      - name: Set global folder
+        run: |
+          mkdir ~/.npm-global
+          npm config set prefix '~/.npm-global'
+          touch ~/.profile
+          echo "export PATH=~/.npm-global/bin:$PATH" >> ~/.profile
+          source ~/.profile
       - name: Install app center
         run: |
           npm install -g appcenter-cli
