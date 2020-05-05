@@ -20,8 +20,8 @@ jobs:
       - name: Install npm dependencies
         run: |
           npm install
-      - name: Build Android Release
-        uses: avocaddo/AppCenter-Github-Action@v1.0.2
-        with: |
-          command: appcenter codepush release-react -a masimo-lloyds.design/todocp-android -d Production
-          token: token: ${{secrets.APP_CENTER_TOKEN}}
+      - name: Publish to code push
+        uses: mikeal/npx@master
+        with:
+          args: appcenter codepush release-react -a masimo-lloyds.design/todocp-android -d Production --token=${{secrets.APP_CENTER_TOKEN}}
+         
