@@ -1,7 +1,7 @@
-import React, {useMemo} from 'react';
+import React from 'react';
+import {View} from 'react-native';
 
 import styleConstants from '../style';
-import {View} from 'react-native';
 
 function Spacer({small, medium, large}) {
   const getSize = () => {

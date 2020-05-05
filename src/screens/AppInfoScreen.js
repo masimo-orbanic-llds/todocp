@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Screen, Text} from '../components';
 
 function AppInfoScreen(props) {

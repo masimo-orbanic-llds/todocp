@@ -1,6 +1,6 @@
 import React from 'react';
-
 import {StyleSheet, TextInput as RNTextInput} from 'react-native';
+
 import styleConstatns from '../style';
 
 const S = StyleSheet.create({
