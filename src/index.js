@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {StatusBar, ActivityIndicator, View, StyleSheet} from 'react-native';
-
 import {Provider} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
