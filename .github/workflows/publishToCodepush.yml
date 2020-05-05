@@ -1,0 +1,25 @@
+name: publish-to-codepush
+on:
+  push:
+    branches:
+      - master
+jobs:
+  install-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install npm dependencies
+        run: |
+          npm install
+  build-android:
+    needs: install-and-test
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Install npm dependencies
+        run: |
+          npm install
+      - name: Build Android Release
+        run: |
+          appcenter codepush release-react -a masimo-lloyds.design/todocp-android -d Production --token=97a8041096c63fc37b3a8679c62fc93c559742a0
+     
