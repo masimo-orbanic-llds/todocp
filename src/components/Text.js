@@ -3,21 +3,33 @@ import {Text as RNText} from 'react-native';
 
 import styleConstants from '../style';
 
-function Text({small, large, style, ...otherProps}) {
-  const getComputedStyle = () => {
+function Text({small, large, style, secondaryColor, ...otherProps}) {
+  const getComputedFontSize = () => {
     let fontSize = styleConstants.text.normal.fontSize;
-    let color = styleConstants.text.normal.color;
     if (small) {
       fontSize = styleConstants.text.small.fontSize;
-      color = styleConstants.text.small.color;
     } else if (large) {
       fontSize = styleConstants.text.large.fontSize;
-      color = styleConstants.text.large.color;
     }
-    return {fontSize, color};
+    return fontSize;
   };
 
-  const computedStyle = getComputedStyle();
+  const getComputedColor = () => {
+    let color = styleConstants.text.normal.color;
+    if (secondaryColor) {
+      color = styleConstants.text.secondaryColor;
+    } else if (small) {
+      color = styleConstants.text.small.color;
+    } else if (large) {
+      color = styleConstants.text.large.color;
+    }
+    return color;
+  };
+
+  const computedStyle = {
+    fontSize: getComputedFontSize(),
+    color: getComputedColor(),
+  };
   return <RNText style={[computedStyle, style]} {...otherProps} />;
 }
 

@@ -54,6 +54,9 @@ const App = () => {
   );
 };
 
-let codePushOptions = {checkFrequency: codePush.CheckFrequency.ON_APP_RESUME};
+let codePushOptions = {
+  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+  updateDialog: {appendReleaseDescription: true},
+};
 
 export default codePush(codePushOptions)(App);

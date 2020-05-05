@@ -20,6 +20,7 @@ const style = {
       color: '#ffff00',
       fontSize: 22,
     },
+    secondaryColor: '#ff00ff',
   },
   button: {
     primary: {
