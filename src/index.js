@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {StatusBar, ActivityIndicator, View, StyleSheet} from 'react-native';
 import {Provider} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
+import codePush from 'react-native-code-push';
 
 import storeCreator from './redux/store';
 import Router from './router';
@@ -53,4 +54,6 @@ const App = () => {
   );
 };
 
-export default App;
+let codePushOptions = {checkFrequency: codePush.CheckFrequency.ON_APP_RESUME};
+
+export default codePush(codePushOptions)(App);
