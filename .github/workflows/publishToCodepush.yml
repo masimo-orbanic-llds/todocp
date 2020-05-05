@@ -22,7 +22,6 @@ jobs:
           npm install
 
       - name: Publish to code push
-        uses: mikeal/npx@1.0.0
-        with:
-          args: appcenter codepush release-react -a masimo-lloyds.design/todocp-android -d Production --token=${{secrets.APP_CENTER_TOKEN}}
+        run: |
+          npx appcenter codepush release-react -a masimo-lloyds.design/todocp-android -d Production --token=${{secrets.APP_CENTER_TOKEN}}
          
