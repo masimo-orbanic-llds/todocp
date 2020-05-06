@@ -3,6 +3,7 @@ import CodePush from 'react-native-code-push';
 import {StyleSheet, View, Alert} from 'react-native';
 
 import {Screen, Text, Spacer, Button} from '../components';
+import {DEPLOYMENT_KEY} from '../constants';
 
 const S = StyleSheet.create({
   info: {flexDirection: 'row'},
@@ -20,15 +21,13 @@ function AppInfoScreen() {
     getPackageMetadata();
   }, []);
   const handleCheckForUpdatePress = async () => {
-    CodePush.checkForUpdate('FX3RJRdjBHYsAjgYkLY4NwX6FiT3w8JpQZVG3').then(
-      (update) => {
-        if (!update) {
-          Alert.alert('', 'The app is up to date!');
-        } else {
-          Alert.alert('', 'An update is available! ');
-        }
-      },
-    );
+    CodePush.checkForUpdate(DEPLOYMENT_KEY).then((update) => {
+      if (!update) {
+        Alert.alert('', 'The app is up to date!');
+      } else {
+        Alert.alert('', 'An update is available! ');
+      }
+    });
   };
   return (
     <Screen>
@@ -60,35 +59,5 @@ function AppInfoScreen() {
     </Screen>
   );
 }
-/*
-appVersion
-binaryModifiedTime
-bundlePath
-deploymentKey
-downloadUrl
-failedInstall
-isFirstRun
-isMandatory
-isPending
-label
-packageHash
-packageSize
-_isDebugOnly
-
-appVersion: "1.0"
-binaryModifiedTime: "1588685487281"
-bundlePath: "/CodePush/index.android.bundle"
-deploymentKey: "FX3RJRdjBHYsAjgYkLY4NwX6FiT3w8JpQZVG3"
-downloadUrl: "https://codepushupdates.azureedge.net/storagev2/e14eKXGNfePhQT5otF0SPorf8cD4305ac051-ce56-4e2e-b72e-5d5c08c202bf"
-failedInstall: false
-install: ƒ install()
-isFirstRun: false
-isMandatory: false
-isPending: false
-label: "v2"
-packageHash: "38e22beabbb1aa9997c1f7b6872eebca5a6148dedc9be66fd59ffc8ca9fab36a"
-packageSize: 268014
-_isDebugOnly: true
-*/
 
 export default AppInfoScreen;
