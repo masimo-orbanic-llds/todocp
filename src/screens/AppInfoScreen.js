@@ -16,9 +16,13 @@ function AppInfoScreen() {
   useEffect(() => {
     async function getPackageMetadata() {
       const data = await CodePush.getCurrentPackage();
-      setPackageMetadata(data);
+      console.log({data});
+      if (data) {
+        setPackageMetadata(data);
+      }
     }
     getPackageMetadata();
+    // call once loaded
   }, []);
   const handleCheckForUpdatePress = async () => {
     CodePush.checkForUpdate(DEPLOYMENT_KEY).then((update) => {
