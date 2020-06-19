@@ -29,6 +29,20 @@ function AppInfoScreen() {
       }
     });
   };
+  const metadata = packageMetadata ? Object.keys(packageMetadata) : [];
+
+  const notAvailable = __DEV__;
+
+  if (notAvailable) {
+    <Screen>
+      <Spacer medium />
+      <Text large secondaryColor style={S.headline}>
+        Not available in DEV enviroment
+      </Text>
+      <Spacer medium />
+    </Screen>;
+  }
+
   return (
     <Screen>
       <Spacer medium />
@@ -38,7 +52,7 @@ function AppInfoScreen() {
       <Text large secondaryColor style={S.headline}>
         Package metadata
       </Text>
-      {Object.keys(packageMetadata)
+      {metadata
         .filter((key) => typeof packageMetadata[key] !== 'function')
         .map((key) => {
           let value = packageMetadata[key];
